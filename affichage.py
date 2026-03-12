@@ -1,8 +1,8 @@
 def afficher_grille(grille):
     '''
-    Entrée : Liste de liste grille qui recense les pionts des deux joueurs
-    Sortié : Pas de sortie
-    But : Afficher la grille avec des traits plutôt que des affichages de listes bruts
+    Entrée : grille (liste 4D) représentant les 4 sous-grilles 3x3
+    Sortie : aucune
+    But : afficher la grille complète 6x6 avec séparations des sous-grilles
     '''
     print("┏━━━┯━━━┯━━━┳━━━┯━━━┯━━━┓")
 
@@ -10,7 +10,15 @@ def afficher_grille(grille):
         print("┃", end="")
 
         for j in range(6):
-            print(f" {grille[i][j]} ", end="")
+
+            sg_l = i // 3
+            sg_c = j // 3
+            l = i % 3
+            c = j % 3
+
+            valeur = grille[sg_l][sg_c][l][c]
+
+            print(f" {valeur} ", end="")
 
             if j == 2:
                 print("┃", end="")
@@ -27,11 +35,14 @@ def afficher_grille(grille):
     print("┗━━━┷━━━┷━━━┻━━━┷━━━┷━━━┛")
 
 grille = [
-    ["X", " ", "O", " ", "X", " "],
-    [" ", "X", " ", " ", " ", "O"],
-    ["O", " ", " ", "X", " ", " "],
-    [" ", " ", "X", " ", "O", " "],
-    [" ", "O", " ", " ", " ", "X"],
-    ["X", " ", " ", "O", " ", " "]
+    [
+        [["1", " ", " "], [" ", " ", " "], [" ", " ", "1"]],
+        [[" ", " ", "1"], [" ", " ", " "], [" ", " ", "1"]]
+    ],
+    [
+        [["1", " ", " "], [" ", " ", " "], [" ", " ", " "]],
+        [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+    ]
 ]
+
 afficher_grille(grille)
