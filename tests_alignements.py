@@ -1,4 +1,6 @@
 from parametres import *
+from quintago import *
+
 
 def grille_plate(grille):
     """
@@ -121,3 +123,14 @@ def alignement_diagonal(grille, joueur):
             return True
 
     return False
+
+def test_victoire(grille):
+    if alignement_horizontal(grille, joueur1) or alignement_vertical(grille, joueur1) or alignement_diagonal(grille, joueur1):
+        if alignement_horizontal(grille, joueur2) or alignement_vertical(grille, joueur2) or alignement_diagonal(grille, joueur2):
+            return -1
+        else:
+            return 1
+    elif alignement_horizontal(grille, joueur2) or alignement_vertical(grille, joueur2) or alignement_diagonal(grille, joueur2):
+        return 2        # en effet, il ne peut y avoir qu'une valeur retournée pas fonction donc si les deux joueurs sont victorieux 2 ne sera pas retourné 
+    else:
+        return 0
