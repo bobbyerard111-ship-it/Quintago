@@ -1,3 +1,5 @@
+from parametres import *
+
 def grille_plate(grille):
     """
     Convertir une liste en 4D en une grille 2D de dimensions 6x6 sans tenir compte des sous-grille
@@ -26,7 +28,7 @@ def grille_plate(grille):
     return plat
 
 
-def cinq_alignes(sequence, joueur, alignement=5):
+def cinq_alignes(sequence, joueur, alignement=ALIGNEMENT):
     """
     Vérifie si une séquence (ligne, colonne ou diagonale) contient au moins 5 occurences du pion du joueur.
 
@@ -121,6 +123,6 @@ def alignement_diagonal(grille, joueur):
             if 0 <= col < taille:
                 diag_inv.append(plat[lig][col])
         if cinq_alignes(diag_inv, joueur):
-            True
+            return True
 
     return False
