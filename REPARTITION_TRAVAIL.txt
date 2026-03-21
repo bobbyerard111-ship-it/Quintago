@@ -1,0 +1,13 @@
+Joseph Colonna D'Istria : affichage.py
+                          tests_alignements.py
+                          sauvegarde.py
+                          .gitignore
+                          README.md
+                          parametres.py
+
+ Gabriel Assuied : quintago.py
+                   saisie.py
+                   tour_de_jeu.py
+                   parametres.py
+                   README.md
+                   initialisation.py
