@@ -9,20 +9,15 @@ def grille_plate(grille):
 
     Retourne: plat (liste) : liste en 2D 6x6, une autre représentation de la grille complète, plus simple à traiter pour les test d'alignement
     """
+    plat = [[0] * TAILLE for _ in range(TAILLE)]
 
-    taille_sg = len(grille[0][0])
-    nb_sg = len(grille)
-    taille = nb_sg * taille_sg
-
-    plat = [[0] * taille for _ in range(taille)]
-
-    for sg_lig in range(nb_sg): #indice de ligne des sous-grilles (0 ou 1)
-        for sg_col in range(nb_sg): # indice de colonne des sous-grilles (0 ou 1)
-            for l in range(taille_sg): #ligne dans la sous-grille
-                for c in range(taille_sg): # colonne dans la sous-grille
+    for sg_lig in range(NB_SG): #indice de ligne des sous-grilles (0 ou 1)
+        for sg_col in range(NB_SG): # indice de colonne des sous-grilles (0 ou 1)
+            for l in range(TAILLE_SG): #ligne dans la sous-grille
+                for c in range(TAILLE_SG): # colonne dans la sous-grille
                     # Calcul des coordonnées dans la grille plate
-                    lig = sg_lig * taille_sg + l
-                    col = sg_col * taille_sg + c
+                    lig = sg_lig * TAILLE_SG + l
+                    col = sg_col * TAILLE_SG + c
                     plat[lig][col] = grille[sg_lig][sg_col][l][c]
 
     return plat

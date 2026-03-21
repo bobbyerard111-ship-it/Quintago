@@ -33,18 +33,16 @@ def sauvegarder_grille(grille, nb_joueur):
                                   
     Retourne : None
     """
-    nb_sg = len(grille)
-    taille_sg = len(grille[0][0])
 
     with open(NOM_FICHIER, "w") as fichier:
         fichier.write("joueur:" + str(nb_joueur) + "\n")
-        for i in range(nb_sg):
-            for j in range(nb_sg):
+        for i in range(NB_SG):
+            for j in range(NB_SG):
                 #Identification de la sous-grille (sg:I:J)
                 fichier.write("sg:" + str(i) + ":" + str(j) + "\n")
                 #Valeurs case par case en sautant des lignes
-                for l in range(taille_sg):
-                    for c in range(taille_sg):
+                for l in range(TAILLE_SG):
+                    for c in range(TAILLE_SG):
                         fichier.write(str(grille[i][j][l][c] + "\n"))
 
     print("Partie sauvegardée dans '" + NOM_FICHIER + "'.")
@@ -64,6 +62,53 @@ def charger_grille():
     """
     try:
         with open(NOM_FICHIER, "r") as fichier:
-            pass
-    except:
-        pass
+            lignes = []
+            for ligne in fichier: # car chaque élément est une ligne avec le "\n" à la fin
+                lignes.append(ligne)
+            
+            # Pour restituer les informations correctement, il faut retier le "\n" à la fin de chaque ligne avec un slice[:-1]
+            # (la dernière ligne peut ne pas en avoir d'où la vérification)
+            for i in range(len(lignes)):
+                if len(lignes[i]) > 0 and lignes[i][-1] == "\n":
+                    lignes[i]  = lignes[i][:-1]
+            
+            nb_joueur = int(lignes[0][7]) # Format attendu "joueur:X"  ; Le chiffre est donc toujours à l'indice 7
+
+            #Initialisation d'une grille vide
+
+            grille = [[[[0] * TAILLE_SG for _ in range(TAILLE_SG)] for _ in range(NB_SG)] for _ in range(NB_SG)]
+
+            # Remplissage de la grille
+            # On parcourt les lignes à partir de la ligne 1 (on saute "joueur:X")
+            # lignes[0:2] == "sg" pour détecter en-tête
+            # ligne[3] == I (indice de ligne de la sous-grille)
+            # ligne[5] == J (indice de colonne de la sous-grille)
+            num_ligne = 1
+            while num_ligne < len(lignes):
+                ligne = lignes[num_ligne]
+                
+                if ligne[0:2] == "sg":
+                    #lecture des indices directement par position
+                    i = int(ligne[3])
+                    j = int(ligne[5])
+                    num_ligne += 1
+
+                    for l in range(TAILLE_SG):
+                        for c in range(TAILLE_SG):
+                            grille[i][j][l][c] = int(lignes[num_ligne])
+                            num_ligne +=1
+                else:
+                    #ligne inattendue : on l'ignore
+                    num_ligne += 1
+        
+        print("Partie chargée depuis '" + NOM_FICHIER + "'. C'est au joueur " + str(nb_joueur) + " de jouer.")
+
+        return grille, nb_joueur
+
+    except FileNotFoundError:
+        print("Aucune partie sauvegardée trouvée (fichier '" + NOM_FICHIER + "' est introuvable")
+        return None
+    
+    except (ValueError, IndexError) as erreur:
+        print("Erreur lors du chargement : fichier invalide. (" + str(erreur) + ")")
+        return None

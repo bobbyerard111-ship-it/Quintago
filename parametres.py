@@ -1,2 +1,5 @@
 NOM_FICHIER = 'partie_en_cours.txt'
 ALIGNEMENT = 5
+NB_SG = 2
+TAILLE_SG = 3
+TAILLE = NB_SG * TAILLE_SG
