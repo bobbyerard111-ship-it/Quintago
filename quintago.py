@@ -12,10 +12,12 @@ def jouer():
    print(joueur1, joueur2, "bienvenue au quintago de Joseph et Gabriel") 
    
    nombre_tours = 0 
-   while test_victoire() == 0 and nombre_tours < 18:  # tant qu'il n'y a pas de gagnant ou que la limite de tours n'est pas atteinte c'est à dire que toutes les cases de la grille ont été joués 
+   while test_victoire() == 0 and nombre_tours < 36:  # tant qu'il n'y a pas de gagnant ou que la limite de tours n'est pas atteinte c'est à dire que toutes les cases de la grille ont été joués 
       print(joueur1,"A votre tour de jouer") 
       jouer_tour() 
       afficher_grille(grille) 
+      nombre_tours += 1 
+
       print(joueur2,"A votre tour de jouer") 
       jouer_tour() 
       afficher_grille(grille) 
