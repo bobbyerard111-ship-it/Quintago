@@ -1,24 +1,19 @@
+from parametres import *
+
 def afficher_grille(grille):
-    '''
-    Entrée : grille (liste 4D) représentant les 4 sous-grilles 3x3
-    Sortie : aucune
-    But : afficher la grille complète 6x6 avec séparations des sous-grilles
-    '''
-    print("┏━━━┯━━━┯━━━┳━━━┯━━━┯━━━┓")
+    print("  ┏━━━┯━━━┯━━━┳━━━┯━━━┯━━━┓")
 
     for i in range(6):
-        print("┃", end="")
+        print(str(i+1) + " ┃", end="")
 
         for j in range(6):
-
             sg_l = i // 3
             sg_c = j // 3
             l = i % 3
             c = j % 3
 
             valeur = grille[sg_l][sg_c][l][c]
-
-            print(f" {valeur} ", end="")
+            print(f" {VALEURS_A_AFFICHER[valeur]} ", end="")
 
             if j == 2:
                 print("┃", end="")
@@ -28,20 +23,21 @@ def afficher_grille(grille):
         print("┃")
 
         if i == 2:
-            print("┣━━━┿━━━┿━━━╋━━━┿━━━┿━━━┫")
+            print("  ┣━━━┿━━━┿━━━╋━━━┿━━━┿━━━┫")
         elif i < 5:
-            print("┠───┼───┼───╂───┼───┼───┨")
+            print("  ┠───┼───┼───╂───┼───┼───┨")
 
-    print("┗━━━┷━━━┷━━━┻━━━┷━━━┷━━━┛")
+    print("  ┗━━━┷━━━┷━━━┻━━━┷━━━┷━━━┛")
+    print("    1   2   3   4   5   6  ")
 
 grille = [
     [
-        [["1", " ", " "], [" ", " ", " "], [" ", " ", "1"]],
-        [[" ", " ", "1"], [" ", " ", " "], [" ", " ", "1"]]
+        [[1, 0, 0], [0, 0, 0], [0, 2, 1]],
+        [[0, 0, 1], [2, 1, 1], [0, 0, 1]]
     ],
     [
-        [["1", " ", " "], [" ", " ", " "], [" ", " ", " "]],
-        [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+        [[1, 1, 2], [1, 1, 0], [0, 1, 0]],
+        [[0, 1, 1], [2, 2, 1], [0, 2, 1]]
     ]
 ]
 
