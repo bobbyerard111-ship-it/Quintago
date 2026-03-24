@@ -1,6 +1,13 @@
 from parametres import *
 
 def afficher_grille(grille):
+    '''
+    Affiche une grille de quintago avec des jetons blancs et gris
+
+    Paramètre : grille (list) : grille quintago 4D
+
+    Sortie : None
+    '''
     print("  ┏━━━┯━━━┯━━━┳━━━┯━━━┯━━━┓")
 
     for i in range(6):

@@ -125,6 +125,13 @@ def alignement_diagonal(grille, joueur):
     return False
 
 def test_victoire(grille):
+    '''
+    Teste si la grille possède au moins un alignement de jetons
+
+    Paramètres : grille (list) : grille de quintago 4D
+
+    Sortie : int : numéro du joueur et cas particulier d'égalité et double victoire.
+    '''
     if alignement_horizontal(grille, 1) or alignement_vertical(grille, 1) or alignement_diagonal(grille, 1):
         if alignement_horizontal(grille, 2) or alignement_vertical(grille, 2) or alignement_diagonal(grille, 2):
             return -1

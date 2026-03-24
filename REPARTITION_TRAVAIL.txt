@@ -8,6 +8,4 @@ Joseph Colonna D'Istria : affichage.py
  Gabriel Assuied : quintago.py
                    saisie.py
                    tour_de_jeu.py
-                   parametres.py
-                   README.md
                    initialisation.py

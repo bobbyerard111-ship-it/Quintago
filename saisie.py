@@ -51,7 +51,7 @@ def jouer_case(grille, nb_joueur):
       if case != 1 and case != 2: # on vérifie que la case saisie n'a pas déjà été jouée
          test_coordonnées = 1      # cela nous permettra de sortir de la boucle while 
 
-   # modification réelle de la grille (corrigé)
+   # modification réelle de la grille
    if jouer_colonne <= 3:
       if jouer_ligne <= 3:
          grille[0][0][jouer_ligne-1][jouer_colonne-1] = nb_joueur
