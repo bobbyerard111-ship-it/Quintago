@@ -15,7 +15,7 @@ def jouer(grille):
    nombre_tours = 0 
    while test_victoire(grille) == 0 and nombre_tours < 36:  # tant qu'il n'y a pas de gagnant ou que la limite de tours n'est pas atteinte c'est à dire que toutes les cases de la grille ont été joués 
       print("A votre tour,", joueur1) 
-      jouer_tour(grille, 1)
+      jouer_tour(grille, 1)         # séquence d'un tour de jeu 
       afficher_grille(grille) 
       nombre_tours += 1    
 
@@ -30,10 +30,10 @@ def jouer(grille):
    
    elif gagnant == -1: 
       print("Félicitations", joueur1, "et", joueur2, ", vous avez tous les deux gagné")   
-   
+    
    else: 
       if gagnant == 1:
-         print("Bravo,", joueur1, "vous avez gagné(e)")      
+         print("Bravo,", joueur1, "vous avez gagné(e)")       
       else:          
          print("Bravo,", joueur2, "vous avez gagné(e)")
 

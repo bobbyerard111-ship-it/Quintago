@@ -2,7 +2,7 @@ from saisie import *
 from initialisation import *
 
 def rotation_droite(grille, num_sous_grille_rotation):
-   if num_sous_grille_rotation == 1:
+   if num_sous_grille_rotation == 1:   # création de variable sous_grille égale aux positions de la sous_grille dans la grille
       sous_grille = grille[0][0]
    elif num_sous_grille_rotation == 2:
       sous_grille = grille[0][1]
@@ -45,6 +45,6 @@ def jouer_tour(grille, nb_joueur):
       sens_rotation = input("Veuillez saisir un sens de rotation valide de la sous-grille D pour droite et G pour gauche : ")
    
    if sens_rotation == "D" or "d":
-      rotation_droite(grille, num_sous_grille_rotation)
+      rotation_droite(grille, num_sous_grille_rotation)      # application du sens de rotation en fonction de la saisie de l'utilisateur
    else: 
       rotation_gauche(grille, num_sous_grille_rotation)
