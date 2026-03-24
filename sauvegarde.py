@@ -24,17 +24,21 @@ Exemple pour une sous-grille:
 from parametres import *
 
 
-def sauvegarder_grille(grille, nb_joueur):
+def sauvegarder_grille(grille, nb_joueur, joueur1, joueur2):
     """
     Sauvegarde la grille de jeu et le joueur dont c'est le tour au porchain coup dans le fichier 'parti_en_cours.txt'
 
     Paramètres : grille (liste) : grille de jeu sous forme de liste 4D
-                                  nb_joueur : numéro du joueur dont c'est le tour (1 ou 2)
+                 nb_joueur : numéro du joueur dont c'est le tour (1 ou 2)
+                 joueur1 (str) : nom du joueur 1
+                 joueur2 (str) : nom du joueur 2
                                   
     Retourne : None
     """
     with open(NOM_FICHIER, "w") as fichier:
         fichier.write("joueur:" + str(nb_joueur) + "\n")
+        fichier.write("nom1:" + joueur1 + "\n")  # ajout du nom du joueur 1
+        fichier.write("nom2:" + joueur2 + "\n")  # ajout du nom du joueur 2
         for i in range(NB_SG):
             for j in range(NB_SG):
                 #Identification de la sous-grille (sg:I:J)
@@ -72,6 +76,8 @@ def charger_grille():
                     lignes[i]  = lignes[i][:-1]
             
             nb_joueur = int(lignes[0][7]) # Format attendu "joueur:X"  ; Le chiffre est donc toujours à l'indice 7
+            joueur1 = lignes[1][5:]        # Format attendu "nom1:X" ; Le nom commence à l'indice 5
+            joueur2 = lignes[2][5:]        # Format attendu "nom2:X" ; Le nom commence à l'indice 5
 
             #Initialisation d'une grille vide
 
@@ -102,7 +108,7 @@ def charger_grille():
         
         print("Partie chargée depuis '" + NOM_FICHIER + "'. C'est au joueur " + str(nb_joueur) + " de jouer.")
 
-        return grille, nb_joueur
+        return grille, nb_joueur, joueur1, joueur2
 
     except FileNotFoundError:
         print("Aucune partie sauvegardée trouvée (fichier '" + NOM_FICHIER + "' est introuvable")
@@ -111,3 +117,19 @@ def charger_grille():
     except (ValueError, IndexError) as erreur:
         print("Erreur lors du chargement : fichier invalide. (" + str(erreur) + ")")
         return None
+    
+
+def supprimer_sauvegarde():
+    '''
+    Supprime la sauvegarde quand la partie est terminée au profit d'une autre sauvegarde
+
+    Paramètres : Néant
+
+    Sortie : None
+    '''
+    try:
+        open(NOM_FICHIER).close()  # vérifie que le fichier existe
+        open(NOM_FICHIER, "w").close()  # vide le fichier
+        print("Fichier de sauvegarde supprimé.")
+    except FileNotFoundError:
+        pass
