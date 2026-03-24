@@ -1,4 +1,5 @@
 from saisie import *
+from initialisation import *
 
 def rotation_droite(num_sous_grille_rotation):
    if num_sous_grille_rotation == 1:

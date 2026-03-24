@@ -33,7 +33,6 @@ def sauvegarder_grille(grille, nb_joueur):
                                   
     Retourne : None
     """
-
     with open(NOM_FICHIER, "w") as fichier:
         fichier.write("joueur:" + str(nb_joueur) + "\n")
         for i in range(NB_SG):
@@ -43,7 +42,7 @@ def sauvegarder_grille(grille, nb_joueur):
                 #Valeurs case par case en sautant des lignes
                 for l in range(TAILLE_SG):
                     for c in range(TAILLE_SG):
-                        fichier.write(str(grille[i][j][l][c] + "\n"))
+                        fichier.write(str(grille[i][j][l][c]) + "\n")
 
     print("Partie sauvegardée dans '" + NOM_FICHIER + "'.")
 
