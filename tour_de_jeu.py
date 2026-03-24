@@ -1,10 +1,10 @@
 from saisie import *
 from initialisation import *
 
-def rotation_gauche(grille, num_sous_grille_rotation):
+def rotation_droite(grille, num_sous_grille_rotation):
    """
     But :
-        Effectuer une rotation vers la gauche (sens anti-horaire) d’une sous-grille 3x3.
+        Effectuer une rotation vers la droite (sens horaire) d’une sous-grille 3x3.
 
     Entrée :
         - grille : grille principale
@@ -25,10 +25,10 @@ def rotation_gauche(grille, num_sous_grille_rotation):
    sous_grille[0][0], sous_grille[0][2], sous_grille[2][2], sous_grille[2][0] = sous_grille[0][2], sous_grille[2][2], sous_grille[2][0], sous_grille[0][0] # on s'occupe des permutations des jetons situés sur les coins
    sous_grille[0][1], sous_grille[1][2], sous_grille[2][1], sous_grille[1][0] = sous_grille[1][2], sous_grille[2][1], sous_grille[1][0], sous_grille[0][1] # on s'occupe des permutations des jetons en excluant les coins
       
-def rotation_droite(grille, num_sous_grille_rotation):
+def rotation_gauche(grille, num_sous_grille_rotation):
    """
     But :
-        Effectuer une rotation vers la droite (sens horaire) d’une sous-grille 3x3.
+        Effectuer une rotation vers la gauche (sens anti-horaire) d’une sous-grille 3x3.
 
     Entrée :
         - grille : grille principale
