@@ -33,13 +33,13 @@ def jouer_tour(grille, nb_joueur):
    test = 0
    while test == 0:  # on force la saisie 
          try:       # permet de tester le type de la saisie : dans ce cas précis si ce n'est pas un entier on passe directement aux lignes 31 et 32 qui indiquent que la saisie est invalide 
-            num_sous_grille_rotation = int(input("Veuillez saisir le numéro de sous-grille sachant que 1, 2, 3, 4 désigne les sous-grilles en haut à gauche, en haut à droite, en bas à gauche, en bas à droite : "))
+            num_sous_grille_rotation = int(input("Choisissez une sous-grille : 1 (haut gauche), 2 (haut droite), 3 (bas gauche), 4 (bas droite) : "))
             if 1 <= num_sous_grille_rotation <= 4: 
                test = 1  # sortie si saisie valide  
          except ValueError:        # cas de saisie invalide (pas un entier) 
             print("Entrée invalide.")        # forcer saisie
    
-   sens_rotation = input("Veuillez saisir un sens de rotation de la sous-grille D pour droite et G pour gauche : ")
+   sens_rotation = input("Veuillez saisir un sens de rotation : D (droite), G (gauche) : ")
    
    while sens_rotation !="D" and sens_rotation !="d" and sens_rotation !="G" and sens_rotation !="g": # forcer saisie
       sens_rotation = input("Veuillez saisir un sens de rotation valide de la sous-grille D pour droite et G pour gauche : ")
