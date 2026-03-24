@@ -2,8 +2,8 @@
  
 ## Auteurs
  
-- [Prénom1 NOM1]
-- [Prénom2 NOM2]
+- Joseph COLONNA D'ISTRIA
+- Gabriel ASSUIED
  
 ---
  
