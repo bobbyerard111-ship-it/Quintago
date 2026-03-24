@@ -1,8 +1,8 @@
-from quintago import *
 from tour_de_jeu import *
+from initialisation import *
 
 # instruction 3 (i) 
-def jouer_case(): 
+def jouer_case(nb_joueur): 
    test_coordonnées = 0 
    while test_coordonnées == 0: 
       test = 0      # remplace le role d'un break 
@@ -38,8 +38,3 @@ def jouer_case():
 
       if gagnant != "1" and gagnant != "2": # on vérifie que la case saisie n'a pas déjà été jouée
          test_coordonnées = 1      # cela nous permettra de sortir de la boucle while 
-    
-   if nombre_tours % 2 == 0:
-      gagnant = "1"    # en effet tous les deux tours de la fonction jouer(), la boucle while se répète ainsi la parité nous permet de savoir qui joue et donc on remplace le 0 de la case qui indique que la case est vide par 1 pour indiquer que c'est le joueur1 qui joue la case
-   else:
-      gagnant = "2"
