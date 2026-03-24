@@ -7,6 +7,19 @@ from sauvegarde import *
 
 
 def jouer(grille, joueur1='', joueur2=''):
+   """
+   But :
+        Lancer et gérer une partie complète entre deux joueurs.
+
+   Entrée :
+      - grille : état initial du jeu
+      - joueur1, joueur2 : noms des joueurs (optionnels)
+
+   Sortie :
+        - Affichage des tours et du résultat
+        - Mise à jour de la sauvegarde
+   """
+   
    if joueur1 == '' and joueur2 == '':
       joueur1 = input("Veuillez saisir le nom du premier joueur : ") 
       joueur2 = input("Veuillez saisir le nom du second joueur : ") 

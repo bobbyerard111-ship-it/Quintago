@@ -3,6 +3,18 @@ from initialisation import *
 
 # instruction 3 (i) 
 def jouer_case(grille, nb_joueur): 
+   """
+    But :
+        Permettre à un joueur de choisir une case valide et y placer son pion.
+
+    Entrée :
+        - grille : grille de jeu
+        - nb_joueur : numéro du joueur (1 ou 2)
+
+    Sortie :
+        Aucune (la grille est modifiée)
+    """
+
    test_coordonnées = 0 
    while test_coordonnées == 0: 
       test = 0      # remplace le role d'un break 
